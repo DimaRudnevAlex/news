@@ -1,4 +1,3 @@
-import React from 'react';
 import cl from "./styles.module.css"
 import NewsItem from "../NewsItem/NewsItem.jsx";
 
