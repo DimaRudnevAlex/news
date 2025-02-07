@@ -1,0 +1,26 @@
+.item {
+	width: 100%;
+	display: flex;
+	gap: 16px;
+}
+.title {
+	font-size: 20px;
+}
+.extra {
+	font-size: 16px;
+	color: grey;
+}
+.info {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.wrapper {
+	width: 64px;
+	height: 64px;
+	background-color: #f2f4f5;
+	background-position: center;
+	background-size: cover;
+	flex-shrink: 0;
+}
