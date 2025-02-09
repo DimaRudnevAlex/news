@@ -1,5 +1,6 @@
 import cl from "./styles.module.css"
 import NewsItem from "../NewsItem/NewsItem.jsx";
+import withSkeleton from "../../helpers/hocs/withSkeleton.jsx";
 
 const NewsList = ({news}) => {
 	return (
@@ -13,5 +14,6 @@ const NewsList = ({news}) => {
 		</ul>
 	);
 };
+const ListWithSkeleton = withSkeleton(NewsList, "item", 10)
 
-export default NewsList;
+export default ListWithSkeleton;
