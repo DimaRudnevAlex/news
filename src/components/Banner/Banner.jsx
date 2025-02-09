@@ -3,7 +3,6 @@ import Image from "../Image/Image.jsx";
 
 import cl from "./styles.module.css"
 import {formatTimeAgo} from "../../helpers/formatTimeAgo.js";
-import withSkeleton from "../../helpers/hocs/withSkeleton.jsx";
 
 const Banner = ({item}) => {
 	return (
@@ -17,5 +16,4 @@ const Banner = ({item}) => {
 	);
 };
 
-const BannerWithSkeleton = withSkeleton(Banner, "banner", 1)
-export default BannerWithSkeleton;
+export default Banner;
