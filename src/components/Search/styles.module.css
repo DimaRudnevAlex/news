@@ -1,19 +1,11 @@
-.header {
+.search {
 	display: flex;
-	flex-direction: column;
-	gap: 12px;
 	width: 100%;
 	padding: 12px 24px;
 	background-color: #ffffff;
-	border-bottom: 1px solid #a8a7a7;
 }
-.title {
-	font-size: 32px;
-	font-weight: bold;
-	letter-spacing: 3px;
-	
-}
-.date {
-	font-size: 24px;
-	
+.input {
+	width: 100%;
+	padding: 12px 24px;
+	border-radius: 32px;
 }
