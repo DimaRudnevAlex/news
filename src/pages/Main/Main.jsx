@@ -8,16 +8,20 @@ import cl from "./styles.module.css"
 import {getCategories, getNews} from "../../api/apiNews.js";
 import Pagination from "../../components/Pagination/Pagination.jsx";
 import Categories from "../../components/Categories/Categories.jsx";
+import Search from "../../components/Search/Search.jsx";
+import {useDebounce} from "../../helpers/hooks/useDebounce.js";
 
 
 const Main = () => {
 	const [news, setNews] = useState([])
 	const [categories, setCategories] = useState([])
 	const [selectCategory, setSelectCategory] = useState("All")
+	const [keywords, setKeywords] = useState("")
 	const [isLoading, setIsLoading] = useState(true)
 	const [currentPage, setCurrentPage] = useState(1)
 	const totalPages = 10;
 	const pageSize = 10;
+	const debounceValue = useDebounce(keywords, 1000)
 
 	const fetchNews = async (currentPage) => {
 		try {
@@ -26,6 +30,7 @@ const Main = () => {
 				page_number: currentPage,
 				page_size: pageSize,
 				category: selectCategory === "All" ? null : selectCategory,
+				keywords: debounceValue,
 			});
 			setNews(response.news)
 			setIsLoading(false)
@@ -45,7 +50,7 @@ const Main = () => {
 
 	useEffect(() => {
 		fetchNews(currentPage)
-	}, [currentPage,selectCategory])
+	}, [currentPage,selectCategory, debounceValue])
 
 	useEffect(() => {
 		fetchCategories()
@@ -71,6 +76,7 @@ const Main = () => {
 
 	return (
 		<main className={cl.main}>
+			<Search keywords={keywords} setKeywords={setKeywords} />
 			<Categories categories={categories}
 			            selectCategory={selectCategory}
 			            setSelectCategory={setSelectCategory}/>

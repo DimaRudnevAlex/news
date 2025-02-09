@@ -1,14 +1,16 @@
 import React from 'react';
 import cl from "./styles.module.css"
-import {formatDate} from "../../helpers/formatDate.js";
 
-const Header = () => {
+const Search = ({keywords, setKeywords}) => {
 	return (
-		<header className={cl.header}>
-			<h1 className={cl.title}>DAR NEWS</h1>
-			<p className={cl.date}>{formatDate(new Date())}</p>
-		</header>
+		<div className={cl.search}>
+			<input type="text"
+			       placeholder="Search"
+			       className={cl.input}
+			       value={keywords}
+			       onChange={(e) => setKeywords(e.target.value)}/>
+		</div>
 	);
 };
 
-export default Header;
+export default Search;
