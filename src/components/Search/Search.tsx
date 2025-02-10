@@ -1,7 +1,12 @@
-import React, {useState} from 'react';
 import cl from "./styles.module.css"
+import {FC} from "react";
 
-const Search = ({keywords, setKeywords}) => {
+interface Props {
+	keywords: string;
+	setKeywords: (key: string, value: string | number | null) => void
+}
+
+const Search: FC<Props>= ({keywords, setKeywords}) => {
 
 	return (
 		<div className={cl.search}>
