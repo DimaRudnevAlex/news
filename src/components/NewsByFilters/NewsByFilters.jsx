@@ -1,4 +1,4 @@
-import React from 'react';
+
 import cl from "./styles.module.css"
 import {PAGE_SIZE, TOTAL_PAGES} from "../../constant/constants.js";
 import NewsList from "../NewsList/NewsList.jsx";
