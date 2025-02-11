@@ -9,6 +9,7 @@ import {useDebounce} from "../../helpers/hooks/useDebounce.ts";
 import PaginationWrapper from "../PaginationWrapper/PaginationWrapper.tsx";
 import {NewsApiResponse, ParamsType} from "../../interfaces";
 
+
 const NewsByFilters = () => {
     const {filters, changeFilters} = useFilters({
         page_number: 1,
@@ -45,7 +46,8 @@ const NewsByFilters = () => {
     return (
         <section className={cl.section}>
             <NewsFilters filters={filters}
-                         changeFilters={changeFilters}/>
+                         changeFilters={changeFilters}
+            />
 
             <PaginationWrapper top
                                bottom
@@ -53,7 +55,9 @@ const NewsByFilters = () => {
                                handlePageChange={handlePageChange}
                                handlePreviousPage={handlePreviousPage}
                                handleNextPage={handleNextPage}
-                               currentPage={filters.page_number}>
+                               currentPage={filters.page_number}
+                               >
+
                 <NewsList isLoading={isLoading}
                           news={data?.news}/>
             </PaginationWrapper>
