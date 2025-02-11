@@ -3,10 +3,11 @@ import {FC, ReactNode} from "react";
 import {IPaginationProps} from "../../interfaces";
 
 interface Props {
-    top?: boolean;
-    bottom?: boolean;
-    children: ReactNode;
+    top?: boolean,
+    bottom?: boolean,
+    children: ReactNode,
 }
+
 
 const PaginationWrapper: FC<Props & IPaginationProps> = ({top, bottom, children, ...paginationProps}) => {
     return (
