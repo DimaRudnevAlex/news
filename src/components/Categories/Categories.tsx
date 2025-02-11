@@ -1,24 +1,27 @@
 import {ForwardedRef, forwardRef} from 'react';
 import cl from "./styles.module.css"
 import {CategoryType} from "../../interfaces";
+import {useAppDispatch} from "../../store";
+import {setFilters} from "../../store/slices/newsSlice.ts";
 
 interface Props {
     categories: CategoryType[];
     selectCategory: CategoryType | null;
-    setSelectCategory: (key: string, value: string | number | null) => void
 
 }
 
 const Categories= forwardRef(({
                                               categories,
                                               selectCategory,
-                                              setSelectCategory
                                           }: Props, ref: ForwardedRef<HTMLDivElement>) => {
+
+    const dispatch = useAppDispatch()
+
     return (
         <div ref={ref}
              className={cl.categories}>
             {categories.map(category => (
-                <button onClick={() => setSelectCategory("category", category === "All" ? null : category)}
+                <button onClick={() => dispatch(setFilters({key: "category", value: category}))}
                         key={category}
                         className={selectCategory === category ? cl.active : cl.item}>{category}</button>))}
         </div>
